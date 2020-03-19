@@ -2,7 +2,8 @@
 # vi: set ft=ruby :
 hosts = {
   "k3s01" => "192.168.50.200",
-  "k3s02" => "192.168.50.201"
+  "k3s02" => "192.168.50.201",
+  "k3s03" => "192.168.50.202"
 
 }
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
@@ -19,6 +20,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "centos/7"
   config.vm.box_check_update = false
 
+  config.vm.provision "file", source: "k3s", destination: "k3s"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
