@@ -9,8 +9,8 @@ mirrors:
 EOF
 ## install docker-compose
 sudo chmod a+x k3s
-mv k3s /usr/bin/k3s
-
+sudo mv k3s /usr/bin/k3s
+sudo mv install.sh /root/
 sudo tee /root/dashboard.admin-user.yml <<-'EOF'
 apiVersion: v1
 kind: ServiceAccount
