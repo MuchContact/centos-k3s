@@ -10,7 +10,11 @@ EOF
 ## install docker-compose
 sudo chmod a+x k3s
 sudo mv k3s /usr/bin/k3s
+
+# config k3s install.sh
+sudo chmod a+x install.sh
 sudo mv install.sh /root/
+
 sudo tee /root/dashboard.admin-user.yml <<-'EOF'
 apiVersion: v1
 kind: ServiceAccount
