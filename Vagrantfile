@@ -2,8 +2,8 @@
 # vi: set ft=ruby :
 hosts = {
   "k3s01" => "192.168.50.200",
-  "k3s02" => "192.168.50.201",
-  "k3s03" => "192.168.50.202"
+  "k3s02" => "192.168.50.201"
+  # "k3s03" => "192.168.50.202"
 
 }
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
@@ -20,7 +20,6 @@ Vagrant.configure("2") do |config|
   config.vm.box = "centos/7"
   config.vm.box_check_update = false
 
-  config.vm.provision "file", source: "k3s", destination: "k3s"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -80,5 +79,8 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-
+  config.vm.provision "file", source: "k3s", destination: "k3s"
+  config.vm.provision "file", source: "install.sh", destination: "install.sh"
+  config.vm.provision "shell", path: "disableenforce.sh"
+  #config.vm.provision "shell", path: "install-docker.sh"
 end
