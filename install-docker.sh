@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo yum install -y lsof
+sudo yum install -y lsof vim net-tools
 sudo mkdir -p /etc/rancher/k3s
 sudo tee /etc/rancher/k3s/registries.yaml <<-'EOF'
 mirrors:
@@ -9,7 +9,7 @@ mirrors:
 EOF
 ## install docker-compose
 sudo chmod a+x k3s
-sudo mv k3s /usr/bin/k3s
+sudo copy k3s /usr/bin/k3s
 
 # config k3s install.sh
 sudo chmod a+x install.sh
